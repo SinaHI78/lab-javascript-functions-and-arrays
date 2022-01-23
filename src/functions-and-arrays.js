@@ -13,13 +13,15 @@ function maxOfTwoNumbers(a, b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(stringArray) {
+  //return null if empty
   if (stringArray.length === 0) {
     return null;
   }
-
+  //declare a variable to store the longest word
   let longestWord = '';
-
+  //iterate over the array to find longest word
   for (let i = 0; i < stringArray.length; i++) {
+    //compare the current element in the array to the longest word found before
     if (stringArray[i].length > longestWord.length) {
       longestWord = stringArray[i];
     }
@@ -29,12 +31,13 @@ function findLongestWord(stringArray) {
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-//let sum = 0;
 
 function sumNumbers(array) {
+  //declare variable to store the result
   let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    sum += array[i];
+  //iterate over the array to add each element to the other
+  for (const currNumber of array) {
+    sum += currNumber;
   }
   return sum;
 }
@@ -46,12 +49,32 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  //declare variable to store the result
+  let sum = 0;
+  //return null if empty
+  if (arr.length === 0) {
+    return null;
+  }
+  //call the function sumNumbers that iterates over an array and sums it up
+  //divide the sum with the length of the array to get the average
+  return sumNumbers(arr) / arr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+  //return null if empty
+  if (arr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (const currWord of arr) {
+    sum += currWord.length;
+  }
+  return sum / arr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -71,8 +94,24 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  //return null if empty
+  if (array.length === 0) {
+    return null;
+  }
+  //new array for pushing each word only once
+  let newArr = [];
 
+  for (const currWord of array) {
+    //decides if currWord is already in newArr,
+    //if not (-1) it is pushed into newArr
+    if (newArr.indexOf(currWord) === -1) {
+      newArr.push(currWord);
+    }
+  }
+  return newArr;
+}
+// [0, 2, 4]
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
